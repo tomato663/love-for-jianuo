@@ -58,12 +58,23 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        /* 隐藏音乐播放器 */
+        audio {
+            display: none;
+        }
     </style>
 </head>
 <body>
+
+    <!-- 音乐播放器 -->
+    <audio id="music" autoplay loop>
+        <source src="https://your-music-link.com/confession-balloon.mp3" type="audio/mpeg">
+        你的浏览器不支持音频播放
+    </audio>
+
     <!-- 语言切换按钮 -->
     <div class="lang-switch">
-        <button id="lang-btn" onclick="toggleLanguage()">🌎 切换语言</button>
+        <button id="lang-btn" onclick="toggleLanguage()">English</button>
     </div>
 
     <h1 id="title">佳诺，我爱你！<br>我要跟你在一起一辈子！</h1>
@@ -96,8 +107,8 @@
                 document.getElementById("p4").innerText = "No matter what storms the future brings, I will stand by your side, holding your hand, never leaving you.";
                 document.getElementById("p5").innerText = "Jianuo, I love you! ❤️";
                 document.getElementById("p6").innerText = "— Forever loving you, Ruibin";
-                // 更新按钮文本
-                document.getElementById("lang-btn").innerText = "🌎 Switch Language";
+                // 更新按钮文本（改成 "中文"）
+                document.getElementById("lang-btn").innerText = "中文";
             } else {
                 // 切换回中文
                 document.getElementById("title").innerHTML = "佳诺，我爱你！<br>我要跟你在一起一辈子！";
@@ -108,11 +119,19 @@
                 document.getElementById("p4").innerText = "无论未来有多少风雨，我都会坚定地站在你身旁，牵着你的手，不离不弃。";
                 document.getElementById("p5").innerText = "佳诺，我爱你！❤️";
                 document.getElementById("p6").innerText = "——永远爱你的 Ruibin";
-                // 更新按钮文本
-                document.getElementById("lang-btn").innerText = "🌎 切换语言";
+                // 更新按钮文本（改成 "English"）
+                document.getElementById("lang-btn").innerText = "English";
             }
             isChinese = !isChinese;
         }
+
+        // **自动播放音乐**
+        window.onload = function() {
+            let music = document.getElementById("music");
+            music.play().catch(error => {
+                console.log("自动播放被浏览器限制，需要用户交互", error);
+            });
+        };
     </script>
 
 </body>
