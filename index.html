@@ -45,24 +45,73 @@
             font-size: 18px;
             line-height: 1.6;
         }
+        /* 语言切换按钮 */
+        .lang-switch {
+            margin-top: 20px;
+        }
+        button {
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <h1>佳诺，我爱你！<br>我要跟你在一起一辈子！</h1>
+    <!-- 语言切换按钮 -->
+    <div class="lang-switch">
+        <button onclick="toggleLanguage()">🌎 切换语言</button>
+    </div>
+
+    <h1 id="title">佳诺，我爱你！<br>我要跟你在一起一辈子！</h1>
     
     <img src="https://i.postimg.cc/vT1TMN7n/b6b4f92f76e572e1514f2cb6d066497b.jpg" alt="CS 佳诺">
     <div class="heart">❤️</div>
     <img src="https://i.postimg.cc/QMC25w8z/cf811da2315dafdd168c9e15f79954b8.jpg" alt="SM Ruibin">
     
     <div class="letter">
-        <h2>致我最爱的佳诺</h2>
-        <p>佳诺，从遇见你的那一刻起，我的世界便多了一抹最美的色彩。</p>
-        <p>你的笑容如阳光般温暖，你的眼神如星辰般璀璨。每一次与你交谈，我的心跳都会不自觉加快，每一次看到你，我都希望时间能停留在这一刻。</p>
-        <p>佳诺，我喜欢你，真的很喜欢你。我愿意用一生去守护你，陪伴你，与你一同经历生活中的点点滴滴。</p>
-        <p>无论未来有多少风雨，我都会坚定地站在你身旁，牵着你的手，不离不弃。</p>
-        <p>佳诺，我爱你！❤️</p>
-        <p>——永远爱你的 Ruibin</p>
+        <h2 id="letter-title">致我最爱的佳诺</h2>
+        <p id="p1">佳诺，从遇见你的那一刻起，我的世界便多了一抹最美的色彩。</p>
+        <p id="p2">你的笑容如阳光般温暖，你的眼神如星辰般璀璨。每一次与你交谈，我的心跳都会不自觉加快，每一次看到你，我都希望时间能停留在这一刻。</p>
+        <p id="p3">佳诺，我喜欢你，真的很喜欢你。我愿意用一生去守护你，陪伴你，与你一同经历生活中的点点滴滴。</p>
+        <p id="p4">无论未来有多少风雨，我都会坚定地站在你身旁，牵着你的手，不离不弃。</p>
+        <p id="p5">佳诺，我爱你！❤️</p>
+        <p id="p6">——永远爱你的 Ruibin</p>
     </div>
+
+    <script>
+        let isChinese = true;
+
+        function toggleLanguage() {
+            if (isChinese) {
+                // 切换成英文
+                document.getElementById("title").innerHTML = "Jianuo, I love you!<br>I want to be with you forever!";
+                document.getElementById("letter-title").innerText = "To my dearest Jianuo";
+                document.getElementById("p1").innerText = "Jianuo, from the moment I met you, my world has been filled with the most beautiful colors.";
+                document.getElementById("p2").innerText = "Your smile is as warm as the sun, and your eyes shine like the stars. Every time I talk to you, my heart races, and every time I see you, I wish time could stop in that moment.";
+                document.getElementById("p3").innerText = "Jianuo, I like you, I really like you. I want to spend my whole life protecting you, being with you, and sharing every moment of life with you.";
+                document.getElementById("p4").innerText = "No matter what storms the future brings, I will stand by your side, holding your hand, never leaving you.";
+                document.getElementById("p5").innerText = "Jianuo, I love you! ❤️";
+                document.getElementById("p6").innerText = "— Forever loving you, Ruibin";
+            } else {
+                // 切换回中文
+                document.getElementById("title").innerHTML = "佳诺，我爱你！<br>我要跟你在一起一辈子！";
+                document.getElementById("letter-title").innerText = "致我最爱的佳诺";
+                document.getElementById("p1").innerText = "佳诺，从遇见你的那一刻起，我的世界便多了一抹最美的色彩。";
+                document.getElementById("p2").innerText = "你的笑容如阳光般温暖，你的眼神如星辰般璀璨。每一次与你交谈，我的心跳都会不自觉加快，每一次看到你，我都希望时间能停留在这一刻。";
+                document.getElementById("p3").innerText = "佳诺，我喜欢你，真的很喜欢你。我愿意用一生去守护你，陪伴你，与你一同经历生活中的点点滴滴。";
+                document.getElementById("p4").innerText = "无论未来有多少风雨，我都会坚定地站在你身旁，牵着你的手，不离不弃。";
+                document.getElementById("p5").innerText = "佳诺，我爱你！❤️";
+                document.getElementById("p6").innerText = "——永远爱你的 Ruibin";
+            }
+            isChinese = !isChinese;
+        }
+    </script>
 
 </body>
 </html>
+
+
