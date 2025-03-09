@@ -45,7 +45,7 @@
             font-size: 18px;
             line-height: 1.6;
         }
-        .language-switch {
+        .language-switch, .music-button {
             margin-top: 20px;
             font-size: 16px;
             padding: 10px;
@@ -66,7 +66,7 @@
         <source src="https://educationwaeduau-my.sharepoint.com/:u:/r/personal/mulin_li_student_education_wa_edu_au/Documents/%E5%91%A8%E6%9D%B0%E4%BC%A6%20-%20%E5%91%8A%E7%99%BD%E6%B0%94%E7%90%83.mp3?csf=1&web=1&e=QAWlXZ" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    <button onclick="toggleMusic(event)">播放音乐</button>
+    <button class="music-button" onclick="toggleMusic(event)">播放音乐</button>
     
     <img src="https://i.postimg.cc/vT1TMN7n/b6b4f92f76e572e1514f2cb6d066497b.jpg" alt="CS 佳诺">
     <div class="heart">❤️</div>
@@ -95,6 +95,7 @@
         
         function toggleLanguage() {
             var langButton = document.querySelector(".language-switch");
+            var musicButton = document.querySelector(".music-button");
             if (document.documentElement.lang === "zh") {
                 document.documentElement.lang = "en";
                 document.querySelector("h1").innerText = "Jianuo, I love you! I want to be with you forever!";
@@ -106,6 +107,7 @@
                 Jianuo, I love you! ❤️<br>
                 ——Forever yours, Ruibin`;
                 langButton.innerText = "中文";
+                musicButton.innerText = "Play Music";
             } else {
                 document.documentElement.lang = "zh";
                 document.querySelector("h1").innerText = "佳诺，我爱你！我要跟你在一起一辈子！";
@@ -117,6 +119,7 @@
                 佳诺，我爱你！❤️<br>
                 ——永远爱你的 Ruibin`;
                 langButton.innerText = "English";
+                musicButton.innerText = "播放音乐";
             }
         }
     </script>
