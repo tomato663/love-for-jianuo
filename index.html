@@ -62,11 +62,11 @@
     
     <button class="language-switch" onclick="toggleLanguage()">English</button>
     
-    <audio id="bg-music" autoplay loop>
-        <source src="https://educationwaeduau-my.sharepoint.com/:u:/r/personal/mulin_li_student_education_wa_edu_au/Documents/%E5%91%A8%E6%9D%B0%E4%BC%A6%20-%20%E5%91%8A%E7%99%BD%E6%B0%94%E7%90%83.mp3?csf=1&web=1&e=QAWlXZ" type="audio/mp3" type="audio/mpeg">
+    <audio id="bg-music" loop>
+        <source src="https://educationwaeduau-my.sharepoint.com/:u:/r/personal/mulin_li_student_education_wa_edu_au/Documents/%E5%91%A8%E6%9D%B0%E4%BC%A6%20-%20%E5%91%8A%E7%99%BD%E6%B0%94%E7%90%83.mp3?csf=1&web=1&e=QAWlXZ" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    <button onclick="toggleMusic()">暂停音乐</button>
+    <button onclick="toggleMusic(event)">播放音乐</button>
     
     <img src="https://i.postimg.cc/vT1TMN7n/b6b4f92f76e572e1514f2cb6d066497b.jpg" alt="CS 佳诺">
     <div class="heart">❤️</div>
@@ -82,7 +82,7 @@
     </div>
     
     <script>
-        function toggleMusic() {
+        function toggleMusic(event) {
             var music = document.getElementById("bg-music");
             if (music.paused) {
                 music.play();
@@ -97,7 +97,7 @@
             var langButton = document.querySelector(".language-switch");
             if (document.documentElement.lang === "zh") {
                 document.documentElement.lang = "en";
-                document.querySelector("h1").innerHTML = "Jianuo, I love you!<br>I want to be with you forever!";
+                document.querySelector("h1").innerText = "Jianuo, I love you! I want to be with you forever!";
                 document.querySelector(".letter h2").innerText = "To my beloved Jianuo";
                 document.querySelector(".letter p").innerHTML = `Jianuo, from the moment I met you, my world was filled with the most beautiful colors.<br>
                 Your smile is as warm as the sun, and your eyes shine like the stars. Every time I talk to you, my heart races, and every time I see you, I wish time could stop.<br>
@@ -108,7 +108,7 @@
                 langButton.innerText = "中文";
             } else {
                 document.documentElement.lang = "zh";
-                document.querySelector("h1").innerHTML = "佳诺，我爱你！<br>我要跟你在一起一辈子！";
+                document.querySelector("h1").innerText = "佳诺，我爱你！我要跟你在一起一辈子！";
                 document.querySelector(".letter h2").innerText = "致我最爱的佳诺";
                 document.querySelector(".letter p").innerHTML = `佳诺，从遇见你的那一刻起，我的世界便多了一抹最美的色彩。<br>
                 你的笑容如阳光般温暖，你的眼神如星辰般璀璨。每一次与你交谈，我的心跳都会不自觉加快，每一次看到你，我都希望时间能停留在这一刻。<br>
