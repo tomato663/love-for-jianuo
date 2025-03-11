@@ -1,3 +1,5 @@
+
+您说：
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -45,7 +47,7 @@
             font-size: 18px;
             line-height: 1.6;
         }
-        .music-button {
+        .language-switch, .music-button {
             margin-top: 20px;
             font-size: 16px;
             padding: 10px;
@@ -60,7 +62,9 @@
 <body>
     <h1>佳诺，我爱你！<br>我要跟你在一起一辈子！</h1>
     
-    <audio id="bg-music" autoplay loop>
+    <button class="language-switch" onclick="toggleLanguage()">English</button>
+    
+    <audio id="bg-music" loop>
         <source src="https://www.kumeiwp.com/wj/192112/2024/01/06/a087786db0a11d71a75a30159af80f10.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -80,19 +84,6 @@
     </div>
     
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var music = document.getElementById("bg-music");
-            var playPromise = music.play();
-
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    console.log("音乐已自动播放");
-                }).catch(error => {
-                    console.log("自动播放被阻止，用户需要手动点击播放");
-                });
-            }
-        });
-
         function toggleMusic(event) {
             var music = document.getElementById("bg-music");
             if (music.paused) {
@@ -101,6 +92,44 @@
             } else {
                 music.pause();
                 event.target.innerText = "播放音乐";
+            }
+        }
+        
+        function toggleLanguage() {
+            var langButton = document.querySelector(".language-switch");
+            var musicButton = document.querySelector(".music-button");
+            var paragraphs = document.querySelectorAll(".letter p"); // 获取所有的 <p> 元素
+            
+            if (document.documentElement.lang === "zh") {
+                document.documentElement.lang = "en";
+                document.querySelector("h1").innerText = "Jianuo, I love you! I want to be with you forever!";
+                document.querySelector(".letter h2").innerText = "To my beloved Jianuo";
+                
+                // 更新所有段落的内容为英文
+                paragraphs[0].innerHTML = Jianuo, from the moment I met you, my world was filled with the most beautiful colors.;
+                paragraphs[1].innerHTML = Your smile is as warm as the sun, and your eyes shine like the stars. Every time I talk to you, my heart races, and every time I see you, I wish time could stop.;
+                paragraphs[2].innerHTML = Jianuo, I like you, I really do. I want to protect you, accompany you, and experience every moment of life with you.;
+                paragraphs[3].innerHTML = No matter how many storms the future holds, I will always stand by your side, holding your hand, never letting go.;
+                paragraphs[4].innerHTML = Jianuo, I love you! ❤️;
+                paragraphs[5].innerHTML = ——Forever yours, Ruibin;
+                
+                langButton.innerText = "中文";
+                musicButton.innerText = "Play Music";
+            } else {
+                document.documentElement.lang = "zh";
+                document.querySelector("h1").innerText = "佳诺，我爱你！我要跟你在一起一辈子！";
+                document.querySelector(".letter h2").innerText = "致我最爱的佳诺";
+                
+                // 更新所有段落的内容为中文
+                paragraphs[0].innerHTML = 佳诺，从遇见你的那一刻起，我的世界便多了一抹最美的色彩。;
+                paragraphs[1].innerHTML = 你的笑容如阳光般温暖，你的眼神如星辰般璀璨。每一次与你交谈，我的心跳都会不自觉加快，每一次看到你，我都希望时间能停留在这一刻。;
+                paragraphs[2].innerHTML = 佳诺，我喜欢你，真的很喜欢你。我愿意用一生去守护你，陪伴你，与你一同经历生活中的点点滴滴。;
+                paragraphs[3].innerHTML = 无论未来有多少风雨，我都会坚定地站在你身旁，牵着你的手，不离不弃。;
+                paragraphs[4].innerHTML = 佳诺，我爱你！❤️;
+                paragraphs[5].innerHTML = ——永远爱你的 Ruibin;
+                
+                langButton.innerText = "English";
+                musicButton.innerText = "播放音乐";
             }
         }
     </script>
